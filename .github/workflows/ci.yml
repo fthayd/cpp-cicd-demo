@@ -1,29 +1,3 @@
-name: Modern C++ CI
-
-on: [push]
-
-jobs:
-  build:
-    runs-on: ubuntu-latest
-
-    steps:
-    - uses: actions/checkout@v3
-
-    - name: Klasor Olustur (Build)
-      run: mkdir build
-
-    - name: CMake Yapilandirma
-      working-directory: ./build
-      run: cmake ..
-
-    - name: Derle
-      working-directory: ./build
-      run: make
-
-    - name: Testleri Kos
-      working-directory: ./build
-      run: ./test_bin
-
 name: Modern C++ CI with Docker
 
 on: [push]
@@ -46,3 +20,4 @@ jobs:
 
     - name: Docker Konteynerini Test Et
       run: docker run --rm cpp-demo-app
+      
