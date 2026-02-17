@@ -61,7 +61,16 @@ git push -u origin main
 
 When prompted for a password, paste your Classic Token instead of your GitHub password.
 
+## Docker Local Test
+Use the commands below to test with docker on local computer.
+```bash
+docker build -t my-test-image .
+docker run my-test-image
+```
+
+
 # Version Log
 When | Who | What
 ---- | --- | ----
 17/02/26 | F. Aydin | Prepared Readme.md file
+17/02/26 | F. Aydin | Test with docker ability added!

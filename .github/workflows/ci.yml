@@ -24,3 +24,25 @@ jobs:
       working-directory: ./build
       run: ./test_bin
 
+name: Modern C++ CI with Docker
+
+on: [push]
+
+jobs:
+  build-and-docker:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+
+    - name: Standart Testleri Kos
+      run: |
+        mkdir -p build && cd build
+        cmake .. && make
+        ./test_bin
+
+    - name: Docker Imajini Olustur
+      run: docker build -t cpp-demo-app .
+
+    - name: Docker Konteynerini Test Et
+      run: docker run --rm cpp-demo-app
