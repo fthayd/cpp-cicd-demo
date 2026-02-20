@@ -13,6 +13,9 @@ COPY . .
 # Build işlemini yap
 RUN rm -rf build && mkdir build && cd build && cmake .. && make
 
+# Testi burada çalıştır! Test başarısız olursa build durur.
+RUN cd build && ./test_bin 
+
 # 2. Aşama: Çalıştırma (Run Stage - İmajı küçük tutmak için)
 FROM ubuntu:22.04
 
